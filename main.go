@@ -48,7 +48,6 @@ func main() {
 		username,
 		ipaddress,
 		container.New(layout.NewGridLayout(2), deploybutton, cancelbutton),
-		//textGrid,
 	)
 	win.SetContent(container.New(layout.NewGridLayout(2), vlayout, textArea))
 
@@ -58,16 +57,10 @@ func main() {
 func Executeshell(usrname string, ipaddr string) string {
 
 	script := `
-
-	cd /home/admin/web/codfoxx.in/public_html/
-
 	ls
-
-	cat index.html
-
 	`
 
-	c := exec.Command("ssh", usrname+"@"+ipaddr, "-i", "codfoxxsshaccess.pem")
+	c := exec.Command("ssh", usrname+"@"+ipaddr, "-i", "myserver.pem")
 	var buf = new(bytes.Buffer)
 	buf.WriteString(script)
 	c.Stdin = buf
