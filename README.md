@@ -20,3 +20,16 @@ go build
 ## Usage
 In the `main.go` file you can just add you shell script inside the ` Executeshell ` function. Your server `.pem` file is expected in the root of the project folder.
 The file name must match the `myserver.pem` or you can modifiy the `.pem` file name in the code. after taking the build also the file should be present in the same folder of executables.
+```
+script := `
+	cd /home/web/public_html/
+	git pull origin master
+	php artisan migrate
+	ls
+	cat index.html
+	`
+```
+## License
+GNU General Public License v3.0
+
+
