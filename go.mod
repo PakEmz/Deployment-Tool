@@ -1,4 +1,4 @@
-module windowtest
+module deploymenttool
 
 go 1.17
 
